@@ -15,14 +15,16 @@
         "value": "https://sun-agent.herokuapp.com/agent"
       },
       "API_KEY": {
-        "description": "Agent API key"
+        "description": "Agent API key",
+        "value": ""
       },
       "DISCORD_BOT_DID_ALIAS": {
         "description": "Discord bot DID alias",
         "value": "sun-agent.herokuapp.com:mercury"
       },
       "DISCORD_TOKEN": {
-        "description": "Discord token"
+        "description": "Discord token",
+        "value": ""
       }
     }
   }
