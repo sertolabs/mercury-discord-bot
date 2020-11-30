@@ -2,7 +2,7 @@
   "name": "mercury-discord-bot",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@github.com:sertolabs/mercury-discord-bot.git",
+  "repository": "https://github.com/sertolabs/mercury-discord-bot",
   "author": "Simonas Karuzas <simonas@not.cat>",
   "license": "MIT",
   "scripts": {
