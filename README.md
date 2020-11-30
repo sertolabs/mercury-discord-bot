@@ -3,6 +3,8 @@ Experimental Discord bot
 
 ## Environment variables
 
+`PORT` - http server port
+
 `AGENT_URL` - agent url
 
 `AGENT_API_KEY` - agent api key

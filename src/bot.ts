@@ -1,3 +1,4 @@
+import express from 'express'
 import Discord from 'discord.js'
 import { agent } from './agent'
 import { getIdentity } from './profile'
@@ -32,5 +33,14 @@ client.once('ready', async() => {
   console.log(bot.did, 'is ready')
 })
 
+const app = express()
 
-client.login(process.env.DISCORD_TOKEN)
+app.get('/', async (req, res) => {
+ 
+  res.send('Mercury')
+})
+
+app.listen(process.env.PORT, async () => {
+  console.log(`Server running on port: ${process.env.PORT}`)
+  client.login(process.env.DISCORD_TOKEN)
+})
