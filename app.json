@@ -14,7 +14,7 @@
         "description": "Agent URL",
         "value": "https://sun-agent.herokuapp.com/agent"
       },
-      "API_KEY": {
+      "AGENT_API_KEY": {
         "description": "Agent API key",
         "value": ""
       },
