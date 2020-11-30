@@ -10,3 +10,9 @@ Experimental Discord bot
 `DISCORD_BOT_DID_ALIAS` - `sun-agent.herokuapp.com:mercury`
 
 `DISCORD_TOKEN` - https://discord.com/developers/applications/ > Select app > Bot > Token
+
+## Deploy
+
+Click to launch your agent on Heroku.
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
