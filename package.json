@@ -1,0 +1,26 @@
+{
+  "name": "mercury-discord-bot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:sertolabs/mercury-discord-bot.git",
+  "author": "Simonas Karuzas <simonas@not.cat>",
+  "license": "MIT",
+  "scripts": {
+    "start": "NODE_ENV=production node build/bot.js",
+    "build": "tsc",
+    "watch": "tsc -w",
+    "postinstall": "tsc"
+  },
+  "dependencies": {
+    "daf-core": "^7.0.0-beta.51",
+    "daf-rest": "^7.0.0-beta.51",
+    "discord.js": "^12.5.1",
+    "typescript": "^4.1.2"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.10",
+    "@types/ws": "^7.4.0",
+    "daf-typeorm": "^7.0.0-beta.51",
+    "daf-w3c": "^7.0.0-beta.51"
+  }
+}
