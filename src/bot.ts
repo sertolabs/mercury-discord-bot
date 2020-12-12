@@ -1,3 +1,5 @@
+import { config } from 'dotenv'
+config()
 import express from 'express'
 import Discord from 'discord.js'
 import { agent } from './agent'
@@ -9,6 +11,7 @@ const client = new Discord.Client({
 })
 
 client.on('messageReactionAdd', async (reaction, user) => {
+  console.log(reaction)
 	if (reaction.partial) {
 		try {
 			await reaction.fetch()

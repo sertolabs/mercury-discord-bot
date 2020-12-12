@@ -2,13 +2,26 @@ import { IIdentity } from 'daf-core'
 import Discord from 'discord.js'
 import { agent } from './agent'
 import { createMessageCredential } from './message'
+import { getIdentity } from './profile'
 
 export const createReactionCredential = async (reaction: Discord.MessageReaction, reactionAuthor: IIdentity) => {
 
   await createMessageCredential(reaction.message)
 
+  const channel = reaction.message.channel as Discord.TextChannel
+  const author = await getIdentity(reaction.message.author)
+
   const credentialSubject = {
-    id: reaction.message.id,
+    id: reaction.message.url,
+    message: {
+      author: author.did,
+      channel: {
+        id: channel.id,
+        name: channel.name,
+        nsfw: channel.nsfw,
+      },
+      content: reaction.message.content,
+    },
     emoji: reaction.emoji.name
   }
 

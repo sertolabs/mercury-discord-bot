@@ -10,7 +10,7 @@ export const createMessageCredential = async (message: Discord.Message) => {
   const count = await agent.dataStoreORMGetVerifiableCredentialsCount({
     where: [
       { column: 'issuer', value: [author.did] },
-      { column: 'subject', value: [message.id] },
+      { column: 'subject', value: [message.url] },
       { column: 'type', value: ['VerifiableCredential,Mercury,Message']}
     ]
   })
@@ -20,10 +20,11 @@ export const createMessageCredential = async (message: Discord.Message) => {
     const channel = message.channel as Discord.TextChannel
   
     const credentialSubject = {
-      id: message.id,
+      id: message.url,
       channel: {
         id: channel.id,
-        name: channel.name
+        name: channel.name,
+        nsfw: channel.nsfw,
       },
       content: message.content
     }
@@ -35,7 +36,7 @@ export const createMessageCredential = async (message: Discord.Message) => {
         '@context': ['https://www.w3.org/2018/credentials/v1'],
         type: ['VerifiableCredential', 'Mercury', 'Message'],
         issuer: { id: author.did },
-        issuanceDate: new Date().toISOString(),
+        issuanceDate: new Date(message.createdTimestamp).toISOString(),
         credentialSubject
       }
     })
