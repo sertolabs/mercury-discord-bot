@@ -24,7 +24,7 @@ export const getIdentityAndUpdateProfile = async ( userInfo: UserInfo ): Promise
 
   if (!process.env.DISCORD_BOT_DID_ALIAS) throw Error('DISCORD_BOT_DID_ALIAS is missing')
 
-  const identity = await agent.identityManagerGetOrCreateIdentity({
+  const identity = await agent.didManagerGetOrCreate({
     alias: userInfo.alias,
     provider: userInfo.provider
   })

@@ -28,7 +28,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
 client.once('ready', async() => {
   if (!process.env.DISCORD_BOT_DID_ALIAS) throw Error('DISCORD_BOT_DID_ALIAS is missing')
 
-  const bot = await agent.identityManagerGetOrCreateIdentity({
+  const bot = await agent.didManagerGetOrCreate({
     alias: process.env.DISCORD_BOT_DID_ALIAS,
     provider: 'did:web'
   })
