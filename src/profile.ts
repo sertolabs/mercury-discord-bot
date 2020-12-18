@@ -1,5 +1,5 @@
 import Discord from 'discord.js'
-import { IIdentity } from 'daf-core'
+import { IIdentifier } from '@veramo/core'
 import { agent } from './agent'
 
 export interface UserInfo {
@@ -20,7 +20,7 @@ export const getIdentity = async (user: Discord.User) => {
   })
 }
 
-export const getIdentityAndUpdateProfile = async ( userInfo: UserInfo ): Promise<IIdentity> => {
+export const getIdentityAndUpdateProfile = async ( userInfo: UserInfo ): Promise<IIdentifier> => {
 
   if (!process.env.DISCORD_BOT_DID_ALIAS) throw Error('DISCORD_BOT_DID_ALIAS is missing')
 

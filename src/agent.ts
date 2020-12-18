@@ -1,12 +1,12 @@
-import { createAgent, IIdentityManager } from 'daf-core'
-import { AgentRestClient } from 'daf-rest'
-import { ICredentialIssuer } from 'daf-w3c'
-import { IDataStoreORM } from 'daf-typeorm'
+import { createAgent, IDIDManager } from '@veramo/core'
+import { AgentRestClient } from '@veramo/remote-client'
+import { ICredentialIssuer } from '@veramo/credential-w3c'
+import { IDataStoreORM } from '@veramo/data-store'
 
 if (!process.env.AGENT_URL) throw Error('AGENT_URL is missing')
 if (!process.env.AGENT_API_KEY) throw Error('AGENT_API_KEY is missing')
 
-export const agent = createAgent<IIdentityManager & ICredentialIssuer & IDataStoreORM>({
+export const agent = createAgent<IDIDManager & ICredentialIssuer & IDataStoreORM>({
   plugins: [
     new AgentRestClient({
       url: process.env.AGENT_URL,
@@ -15,31 +15,31 @@ export const agent = createAgent<IIdentityManager & ICredentialIssuer & IDataSto
       },
       enabledMethods: [
         // 'keyManagerGetKeyManagementSystems',
-        // 'keyManagerCreateKey',
-        // 'keyManagerGetKey',
-        // 'keyManagerDeleteKey',
-        // 'keyManagerImportKey',
+        // 'keyManagerCreate',
+        // 'keyManagerGet',
+        // 'keyManagerDelete',
+        // 'keyManagerImport',
         // 'keyManagerEncryptJWE',
         // 'keyManagerDecryptJWE',
         // 'keyManagerSignJWT',
         // 'keyManagerSignEthTX',
-        'identityManagerGetProviders',
-        'identityManagerGetIdentities',
-        'identityManagerGetIdentity',
-        'identityManagerCreateIdentity',
-        'identityManagerGetOrCreateIdentity',
-        'identityManagerImportIdentity',
-        'identityManagerDeleteIdentity',
-        'identityManagerAddKey',
-        'identityManagerRemoveKey',
-        'identityManagerAddService',
-        'identityManagerRemoveService',
+        'didManagerGetProviders',
+        'didManagerFind',
+        'didManagerGet',
+        'didManagerCreate',
+        'didManagerGetOrCreate',
+        'didManagerImport',
+        'didManagerDelete',
+        'didManagerAddKey',
+        'didManagerRemoveKey',
+        'didManagerAddService',
+        'didManagerRemoveService',
         // 'resolveDid',
         // 'dataStoreSaveMessage',
         // 'dataStoreSaveVerifiableCredential',
         // 'dataStoreSaveVerifiablePresentation',
-        'dataStoreORMGetIdentities',
-        'dataStoreORMGetIdentitiesCount',
+        'dataStoreORMGetIdentifiers',
+        'dataStoreORMGetIdentifiersCount',
         'dataStoreORMGetMessages',
         'dataStoreORMGetMessagesCount',
         'dataStoreORMGetVerifiableCredentialsByClaims',

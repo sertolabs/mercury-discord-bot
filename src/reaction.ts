@@ -1,10 +1,10 @@
-import { IIdentity } from 'daf-core'
+import { IIdentifier } from '@veramo/core'
 import Discord from 'discord.js'
 import { agent } from './agent'
 import { createMessageCredential } from './message'
 import { getIdentity } from './profile'
 
-export const createReactionCredential = async (reaction: Discord.MessageReaction, reactionAuthor: IIdentity) => {
+export const createReactionCredential = async (reaction: Discord.MessageReaction, reactionAuthor: IIdentifier) => {
 
   await createMessageCredential(reaction.message)
 
